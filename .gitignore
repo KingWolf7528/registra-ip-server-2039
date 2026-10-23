@@ -1,0 +1,8 @@
+node_modules/
+.env
+
+# Archivos y metadatos reales de las obras: viven solo en el servidor.
+uploads/*
+!uploads/.gitkeep
+data/obras/*
+!data/obras/.gitkeep
