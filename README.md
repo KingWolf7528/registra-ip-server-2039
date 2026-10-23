@@ -51,3 +51,20 @@ Campos (`FormData`): `archivo` (el archivo, vía `multer.single("archivo")`), `f
 ## Folios
 
 Formato **`OBRA-2039-###`** (2039 = últimos 4 dígitos de la boleta). El frontend propone el folio; si ya está ocupado, el servidor asigna el siguiente libre para que nunca se repita.
+
+## Obras de prueba (Práctica 05)
+
+Con el servidor encendido, en otra terminal:
+
+```bash
+npm run sembrar
+```
+
+`scripts/sembrar-obras.js` registra **10 obras de prueba** (`OBRA-2039-###`) usando el propio `POST /obras`. Las obras tienen:
+
+- **6 categorías distintas:** Fotografía, Diseño gráfico, Literatura, Ilustración, Música, Cine y video.
+- **5 tipos de archivo generados por el script:** PNG, PDF, WAV, TXT.
+- **Fechas de agosto a octubre de 2026**, para probar el ordenamiento.
+- **4 autores distintos**, para probar la búsqueda por autor.
+
+Como `POST /obras` siempre guarda la fecha actual, el script ajusta después `fechaRegistro` en el JSON de cada obra de prueba y la marca con `"prueba": true`. Si se ejecuta dos veces, no duplica obras.
